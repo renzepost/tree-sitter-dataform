@@ -1,0 +1,102 @@
+==================
+Config Block
+==================
+config {
+  type: "view"
+}
+---
+(source_file
+  (config_block
+    (string)))
+
+==================
+JS Block
+==================
+js {
+  const x = "hello";
+}
+---
+(source_file
+  (js_block
+    (js_content)))
+
+==================
+SQL Statement
+==================
+SELECT * FROM table
+---
+(source_file
+  (statement
+    (identifier))
+  (statement
+    (symbol))
+  (statement
+    (identifier))
+  (statement
+    (identifier)))
+
+==================
+Interpolation
+==================
+SELECT ${ref("table")}
+---
+(source_file
+  (statement
+    (identifier))
+  (statement
+    (interpolation
+      (string))))
+
+==================
+Complex Interpolation
+==================
+SELECT ${function({a: "b"})}
+---
+(source_file
+  (statement
+    (identifier))
+  (statement
+    (interpolation
+      (string))))
+
+==================
+Pre-operations Block
+==================
+pre_operations {
+  DECLARE x DEFAULT 1
+}
+---
+(source_file
+  (pre_operations_block
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (number))))
+
+==================
+Post-operations Block
+==================
+post_operations {
+  GRANT SELECT ON TABLE t TO "user@example.com"
+}
+---
+(source_file
+  (post_operations_block
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (identifier))
+    (statement
+      (string))))

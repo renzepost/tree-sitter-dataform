@@ -1,0 +1,56 @@
+{
+  "name": "tree-sitter-dataform",
+  "version": "0.0.1",
+  "description": "Dataform grammar for tree-sitter",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "parsing",
+    "incremental",
+    "dataform",
+    "sqlx"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.26.3"
+  },
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "build-wasm": "tree-sitter build --wasm",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.dataform",
+      "file-types": [
+        "sqlx"
+      ],
+      "injection-regex": "^dataform$",
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm"
+    }
+  ]
+}

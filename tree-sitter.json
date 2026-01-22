@@ -1,0 +1,17 @@
+{
+  "grammars": [
+    {
+      "name": "dataform",
+      "scope": "source.dataform",
+      "file-types": ["sqlx"],
+      "injection-regex": "^dataform$",
+      "highlights": ["queries/highlights.scm"],
+      "injections": ["queries/injections.scm"]
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Dataform grammar for tree-sitter"
+  }
+}
