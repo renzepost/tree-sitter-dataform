@@ -1,17 +1,16 @@
 ; Indentation rules for Dataform SQLX files
-; Note: Braces are anonymous tokens, so we match parent nodes instead
 
-; Indent inside config blocks
-(config_block) @indent
+; Config blocks
+(config_block "}" @end) @indent
 
-; Indent inside js blocks
-(js_block) @indent
+; JS blocks
+(js_block "}" @end) @indent
 
-; Indent inside pre_operations blocks
-(pre_operations_block) @indent
+; Pre-operations blocks
+(pre_operations_block "}" @end) @indent
 
-; Indent inside post_operations blocks
-(post_operations_block) @indent
+; Post-operations blocks
+(post_operations_block "}" @end) @indent
 
-; Indent inside interpolations
-(interpolation) @indent
+; Interpolations
+(interpolation "}" @end) @indent
