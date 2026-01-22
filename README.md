@@ -1,6 +1,6 @@
 # tree-sitter-dataform
 
-> This project was AI-generated and is experimental.
+> This project was mostly AI-generated and is experimental.
 
 An experimental [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for [Dataform](https://cloud.google.com/dataform/) SQLX files.
 
