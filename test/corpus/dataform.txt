@@ -7,7 +7,8 @@ config {
 ---
 (source_file
   (config_block
-    (string)))
+    (braced_code
+      (string))))
 
 ==================
 JS Block
@@ -18,7 +19,9 @@ js {
 ---
 (source_file
   (js_block
-    (js_content)))
+    (open_brace)
+    (js_content)
+    (close_brace)))
 
 ==================
 SQL Statement
@@ -57,7 +60,8 @@ SELECT ${function({a: "b"})}
     (identifier))
   (statement
     (interpolation
-      (string))))
+      (braced_code
+        (string)))))
 
 ==================
 Pre-operations Block
@@ -68,6 +72,7 @@ pre_operations {
 ---
 (source_file
   (pre_operations_block
+    (open_brace)
     (statement
       (identifier))
     (statement
@@ -75,7 +80,8 @@ pre_operations {
     (statement
       (identifier))
     (statement
-      (number))))
+      (number))
+    (close_brace)))
 
 ==================
 Post-operations Block
@@ -86,6 +92,7 @@ post_operations {
 ---
 (source_file
   (post_operations_block
+    (open_brace)
     (statement
       (identifier))
     (statement
@@ -99,4 +106,5 @@ post_operations {
     (statement
       (identifier))
     (statement
-      (string))))
+      (string))
+    (close_brace)))

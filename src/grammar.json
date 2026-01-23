@@ -51,8 +51,13 @@
           "value": "js"
         },
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "{"
+          },
+          "named": true,
+          "value": "open_brace"
         },
         {
           "type": "CHOICE",
@@ -67,8 +72,13 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "}"
+          },
+          "named": true,
+          "value": "close_brace"
         }
       ]
     },
@@ -134,8 +144,13 @@
           "value": "pre_operations"
         },
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "{"
+          },
+          "named": true,
+          "value": "open_brace"
         },
         {
           "type": "REPEAT",
@@ -145,8 +160,13 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "}"
+          },
+          "named": true,
+          "value": "close_brace"
         }
       ]
     },
@@ -158,8 +178,13 @@
           "value": "post_operations"
         },
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "{"
+          },
+          "named": true,
+          "value": "open_brace"
         },
         {
           "type": "REPEAT",
@@ -169,8 +194,13 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "}"
+          },
+          "named": true,
+          "value": "close_brace"
         }
       ]
     },
@@ -247,6 +277,14 @@
     "symbol": {
       "type": "PATTERN",
       "value": "[.,;()=<>+\\-*/!\\[\\]]"
+    },
+    "open_brace": {
+      "type": "STRING",
+      "value": "{"
+    },
+    "close_brace": {
+      "type": "STRING",
+      "value": "}"
     },
     "interpolation": {
       "type": "SEQ",

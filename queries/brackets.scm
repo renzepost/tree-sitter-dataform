@@ -4,13 +4,13 @@
 (braced_code "{" @open "}" @close)
 
 ; JS blocks
-(js_block "{" @open "}" @close)
+(js_block (open_brace) @open (close_brace) @close)
 
 ; Pre-operations blocks
-(pre_operations_block "{" @open "}" @close)
+(pre_operations_block (open_brace) @open (close_brace) @close)
 
 ; Post-operations blocks
-(post_operations_block "{" @open "}" @close)
+(post_operations_block (open_brace) @open (close_brace) @close)
 
 ; Interpolations
 (interpolation "${" @open "}" @close)

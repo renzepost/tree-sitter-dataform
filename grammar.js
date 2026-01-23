@@ -19,7 +19,13 @@ module.exports = grammar({
     config_block: ($) => seq("config", $.braced_code),
 
     // JS block: js { ... }
-    js_block: ($) => seq("js", "{", optional($.js_content), "}"),
+    js_block: ($) =>
+      seq(
+        "js",
+        alias("{", $.open_brace),
+        optional($.js_content),
+        alias("}", $.close_brace),
+      ),
 
     // Content inside js block - captured as raw text for injection
     js_content: ($) => alias($._js_content_raw, "js_content"),
@@ -30,11 +36,21 @@ module.exports = grammar({
 
     // Pre-operations block: pre_operations { ... } containing SQL
     pre_operations_block: ($) =>
-      seq("pre_operations", "{", repeat($.statement), "}"),
+      seq(
+        "pre_operations",
+        alias("{", $.open_brace),
+        repeat($.statement),
+        alias("}", $.close_brace),
+      ),
 
     // Post-operations block: post_operations { ... } containing SQL
     post_operations_block: ($) =>
-      seq("post_operations", "{", repeat($.statement), "}"),
+      seq(
+        "post_operations",
+        alias("{", $.open_brace),
+        repeat($.statement),
+        alias("}", $.close_brace),
+      ),
 
     // Generic block matching { ... } for config/js bodies
     braced_code: ($) =>
@@ -55,6 +71,10 @@ module.exports = grammar({
 
     // Symbols common in SQL
     symbol: ($) => /[.,;()=<>+\-*/!\[\]]/,
+
+    // Named brace tokens for bracket matching
+    open_brace: ($) => "{",
+    close_brace: ($) => "}",
 
     // Dataform interpolation ${ ... }
     interpolation: ($) =>
