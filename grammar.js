@@ -16,7 +16,7 @@ module.exports = grammar({
       ),
 
     // Config block: config { ... }
-    config_block: ($) => seq("config", $._braced_code),
+    config_block: ($) => seq("config", $.braced_code),
 
     // JS block: js { ... }
     js_block: ($) => seq("js", "{", optional($.js_content), "}"),
@@ -37,10 +37,10 @@ module.exports = grammar({
       seq("post_operations", "{", repeat($.statement), "}"),
 
     // Generic block matching { ... } for config/js bodies
-    _braced_code: ($) =>
+    braced_code: ($) =>
       seq(
         "{",
-        repeat(choice(/[^{}"'`]+/, $._braced_code, $.string, $.comment)),
+        repeat(choice(/[^{}"'`]+/, $.braced_code, $.string, $.comment)),
         "}",
       ),
 
@@ -60,7 +60,7 @@ module.exports = grammar({
     interpolation: ($) =>
       seq(
         "${",
-        repeat(choice(/[^{}"'`}]+/, $._braced_code, $.string, $.comment)),
+        repeat(choice(/[^{}"'`}]+/, $.braced_code, $.string, $.comment)),
         "}",
       ),
 

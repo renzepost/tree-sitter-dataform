@@ -39,7 +39,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_braced_code"
+          "name": "braced_code"
         }
       ]
     },
@@ -174,7 +174,7 @@
         }
       ]
     },
-    "_braced_code": {
+    "braced_code": {
       "type": "SEQ",
       "members": [
         {
@@ -192,7 +192,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_braced_code"
+                "name": "braced_code"
               },
               {
                 "type": "SYMBOL",
@@ -266,7 +266,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_braced_code"
+                "name": "braced_code"
               },
               {
                 "type": "SYMBOL",
