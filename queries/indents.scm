@@ -1,7 +1,10 @@
 ; Indentation rules for Dataform SQLX files
 
-; Braced code blocks (config blocks, nested braces, interpolations)
+; Braced code blocks (nested braces, interpolations)
 (braced_code "}" @end) @indent
+
+; Config blocks
+(config_block (close_brace) @end) @indent
 
 ; JS blocks
 (js_block (close_brace) @end) @indent

@@ -7,8 +7,39 @@ config {
 ---
 (source_file
   (config_block
-    (braced_code
-      (string))))
+    (open_brace)
+    (config_content)
+    (close_brace)))
+
+==================
+Config Block with Array
+==================
+config {
+  tags: ["daily", "important"]
+}
+---
+(source_file
+  (config_block
+    (open_brace)
+    (config_content)
+    (close_brace)))
+
+==================
+Config Block with Nested Object
+==================
+config {
+  type: "table",
+  bigquery: {
+    partitionBy: "date",
+    clusterBy: ["region", "country"]
+  }
+}
+---
+(source_file
+  (config_block
+    (open_brace)
+    (config_content)
+    (close_brace)))
 
 ==================
 JS Block

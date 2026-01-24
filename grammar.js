@@ -15,8 +15,33 @@ module.exports = grammar({
         ),
       ),
 
-    // Config block: config { ... }
-    config_block: ($) => seq("config", $.braced_code),
+    // Config block: config { ... } containing JavaScript object literal
+    config_block: ($) =>
+      seq(
+        "config",
+        alias("{", $.open_brace),
+        optional($.config_content),
+        alias("}", $.close_brace),
+      ),
+
+    // Content inside config block - captured as raw text for JS injection
+    config_content: ($) => alias($._config_content_raw, "config_content"),
+
+    // Raw content matching for config blocks - captures text for JS injection
+    // Uses inline string patterns instead of $.string to avoid creating child nodes
+    _config_content_raw: ($) =>
+      repeat1(choice(/[^{}"'`]+/, $._config_braced, $._config_string)),
+
+    _config_braced: ($) =>
+      seq(
+        "{",
+        repeat(choice(/[^{}"'`]+/, $._config_braced, $._config_string)),
+        "}",
+      ),
+
+    // Hidden string patterns for config content (no named nodes created)
+    _config_string: ($) =>
+      choice(/"([^"\\]|\\.)*"/, /'([^'\\]|\\.)*'/, /`([^`\\]|\\.)*`/),
 
     // JS block: js { ... }
     js_block: ($) =>

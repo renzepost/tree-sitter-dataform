@@ -27,15 +27,28 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "braced_code",
+          "type": "close_brace",
+          "named": true
+        },
+        {
+          "type": "config_content",
+          "named": true
+        },
+        {
+          "type": "open_brace",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "config_content",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "interpolation",

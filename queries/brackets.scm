@@ -1,7 +1,10 @@
 ; Bracket matching for Dataform SQLX files
 
-; Braced code blocks (handles nested braces in config, interpolations, etc.)
+; Braced code blocks (handles nested braces in interpolations, etc.)
 (braced_code "{" @open "}" @close)
+
+; Config blocks
+(config_block (open_brace) @open (close_brace) @close)
 
 ; JS blocks
 (js_block (open_brace) @open (close_brace) @close)
