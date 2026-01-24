@@ -3,8 +3,8 @@
 ; Braced code blocks (nested braces, interpolations)
 (braced_code "}" @end) @indent
 
-; Config blocks
-(config_block (close_brace) @end) @indent
+; Config blocks (braces are inside config_content)
+(config_content (close_brace) @end) @indent
 
 ; JS blocks
 (js_block (close_brace) @end) @indent

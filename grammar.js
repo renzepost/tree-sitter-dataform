@@ -16,20 +16,20 @@ module.exports = grammar({
       ),
 
     // Config block: config { ... } containing JavaScript object literal
-    config_block: ($) =>
+    // The braces are included in config_content so JS injection receives valid JS: { type: "table" }
+    config_block: ($) => seq("config", $.config_content),
+
+    // Content inside config block - includes braces for valid JS injection
+    // The open/close_brace aliases enable bracket matching while keeping braces in content
+    config_content: ($) =>
       seq(
-        "config",
         alias("{", $.open_brace),
-        optional($.config_content),
+        optional($._config_content_inner),
         alias("}", $.close_brace),
       ),
 
-    // Content inside config block - captured as raw text for JS injection
-    config_content: ($) => alias($._config_content_raw, "config_content"),
-
-    // Raw content matching for config blocks - captures text for JS injection
-    // Uses inline string patterns instead of $.string to avoid creating child nodes
-    _config_content_raw: ($) =>
+    // Inner content matching for config blocks
+    _config_content_inner: ($) =>
       repeat1(choice(/[^{}"'`]+/, $._config_braced, $._config_string)),
 
     _config_braced: ($) =>

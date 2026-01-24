@@ -7,9 +7,9 @@ config {
 ---
 (source_file
   (config_block
-    (open_brace)
-    (config_content)
-    (close_brace)))
+    (config_content
+      (open_brace)
+      (close_brace))))
 
 ==================
 Config Block with Array
@@ -20,9 +20,9 @@ config {
 ---
 (source_file
   (config_block
-    (open_brace)
-    (config_content)
-    (close_brace)))
+    (config_content
+      (open_brace)
+      (close_brace))))
 
 ==================
 Config Block with Nested Object
@@ -37,9 +37,9 @@ config {
 ---
 (source_file
   (config_block
-    (open_brace)
-    (config_content)
-    (close_brace)))
+    (config_content
+      (open_brace)
+      (close_brace))))
 
 ==================
 JS Block

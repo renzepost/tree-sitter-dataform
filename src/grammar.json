@@ -38,6 +38,15 @@
           "value": "config"
         },
         {
+          "type": "SYMBOL",
+          "name": "config_content"
+        }
+      ]
+    },
+    "config_content": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "ALIAS",
           "content": {
             "type": "STRING",
@@ -51,7 +60,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "config_content"
+              "name": "_config_content_inner"
             },
             {
               "type": "BLANK"
@@ -69,16 +78,7 @@
         }
       ]
     },
-    "config_content": {
-      "type": "ALIAS",
-      "content": {
-        "type": "SYMBOL",
-        "name": "_config_content_raw"
-      },
-      "named": false,
-      "value": "config_content"
-    },
-    "_config_content_raw": {
+    "_config_content_inner": {
       "type": "REPEAT1",
       "content": {
         "type": "CHOICE",

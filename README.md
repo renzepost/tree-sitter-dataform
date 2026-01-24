@@ -77,10 +77,14 @@ All Dataform interpolations are supported:
 - `${when(incremental(), "...", "...")}`
 - `${dataform.projectConfig.vars.myVar}`
 
+## Known Limitations
+
+- **SQL is highlighted, not parsed**: SQL keywords, types, and functions are highlighted using regex patterns rather than a full SQL grammar. This means syntax errors in SQL won't be detected by the parser.
+
 ## To-do
 
 - [ ] Inject `tree-sitter-sql-bigquery` for SQL statements instead of regex-based keyword highlighting
-  - Would provide full SQL syntax highlighting
+  - Would provide full SQL parsing and syntax highlighting
   - Challenge: handling `${...}` interpolations gracefully
   - Alternative: incorporate the full SQL grammar with interpolation support
 
