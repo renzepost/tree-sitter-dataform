@@ -48,9 +48,15 @@
       "file-types": [
         "sqlx"
       ],
-      "injection-regex": "^dataform$",
+      "injection-regex": "^(sqlx|dataform)$",
       "highlights": "queries/highlights.scm",
-      "injections": "queries/injections.scm"
+      "injections": "queries/injections.scm",
+      "brackets": [
+        "queries/brackets.scm"
+      ],
+      "indents": [
+        "queries/indents.scm"
+      ]
     }
   ]
 }
