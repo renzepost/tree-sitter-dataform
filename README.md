@@ -83,6 +83,7 @@ All Dataform interpolations are supported:
 
 ## To-do
 
+- [ ] Fix unmatched braces in `js` block breaking parsing
 - [ ] Inject `tree-sitter-sql-bigquery` for SQL statements instead of regex-based keyword highlighting
   - Would provide full SQL parsing and syntax highlighting
   - Challenge: handling `${...}` interpolations gracefully
